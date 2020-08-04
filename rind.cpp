@@ -4,7 +4,6 @@ using namespace std;
 
 void presentacion();
 int giveOrder();
-int move(int direction);
 
 int main(){
 	int points=20;
@@ -32,19 +31,25 @@ int main(){
 	mana = 4*magic + 3*defense + 2*strength;
 	cout<<"NAME: Draculinio // STR: "<<strength<<"// DEF: "<<defense<<" // MGK: "<<magic<<" // HP: "<<hp<<" // MANA: "<<mana<<endl;
 	do{
+		
+		cout<<"PosX: "<<posx<<" PosY: "<<posy<<endl;
 		order = giveOrder();
 		switch(order){
 			case 1:
 				cout<<"Me muevo hacia arriba"<<endl;
+				posx++;
 				break;
 			case 2: 
 				cout<<"Me muevo hacia abajo"<<endl;
+				posx--;
 				break;
 			case 3:
 				cout<<"Me muevo a la izquierda"<<endl;
+				posy++;
 				break;
 			case 4:
 				cout<<"Me muevo a la derecha"<<endl;
+				posy--;
 				break;
 			case 0:
 				cout<<"Saliendo del sistema..."<<endl;
@@ -68,8 +73,4 @@ int giveOrder(){
 	cout<<"Where should I move?: ";
 	cin>>order;
 	return order;
-}
-
-int move(int direction){
-	return 0;	
 }
