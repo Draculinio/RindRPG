@@ -1,16 +1,18 @@
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
 void presentacion();
 int giveOrder();
-
+int throwDice(int);
 int main(){
 	int points=20;
 	int strength,defense,magic,hp,mana;
 	int posx=0;
 	int posy=0;
 	int order;
+	int dice;
 	presentacion();
 	cout<<"You have 20 points to distribute in Strength, Defense and Magical Power\n";
 	do{
@@ -51,6 +53,10 @@ int main(){
 				cout<<"Me muevo a la derecha"<<endl;
 				posy--;
 				break;
+			case 5:
+				dice = throwDice(6);
+				cout<<"Tirando un D6: "<<dice<<endl;
+				break;
 			case 0:
 				cout<<"Saliendo del sistema..."<<endl;
 				cout<<"Gracias por jugar Rindelia"<<endl;
@@ -73,4 +79,8 @@ int giveOrder(){
 	cout<<"Where should I move?: ";
 	cin>>order;
 	return order;
+}
+
+int throwDice(int faces){
+	return rand() % faces +1;
 }
