@@ -13,6 +13,8 @@ int main(){
 	int posy=0;
 	int order;
 	int dice;
+	int steps=0;
+	int points=0;
 	presentacion();
 	cout<<"You have 20 points to distribute in Strength, Defense and Magical Power\n";
 	do{
@@ -33,25 +35,29 @@ int main(){
 	mana = 4*magic + 3*defense + 2*strength;
 	cout<<"NAME: Draculinio // STR: "<<strength<<"// DEF: "<<defense<<" // MGK: "<<magic<<" // HP: "<<hp<<" // MANA: "<<mana<<endl;
 	do{
-		
+		cout<<"POINTS: "<<points<<endl;
 		cout<<"PosX: "<<posx<<" PosY: "<<posy<<endl;
 		order = giveOrder();
 		switch(order){
 			case 1:
 				cout<<"Me muevo hacia arriba"<<endl;
 				posx++;
+				steps++;
 				break;
 			case 2: 
 				cout<<"Me muevo hacia abajo"<<endl;
 				posx--;
+				steps++;
 				break;
 			case 3:
 				cout<<"Me muevo a la izquierda"<<endl;
 				posy++;
+				steps++;
 				break;
 			case 4:
 				cout<<"Me muevo a la derecha"<<endl;
 				posy--;
+				steps++;
 				break;
 			case 5:
 				dice = throwDice(6);
@@ -64,6 +70,10 @@ int main(){
 			default:
 				cout<<"Orden no incorporada"<<endl;
 		}
+	if(steps==100){
+		points++;
+		steps=0;
+	}
 	}while(order!=0);
 	return 0;
 }
