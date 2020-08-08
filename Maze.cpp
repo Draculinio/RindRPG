@@ -13,7 +13,11 @@ int *Maze::getMaze(){
 void Maze::setMaze(){
 	
 	for(int i=0;i<2500;i++){
-		maze[i]=0;
+		if(rand()%2==0){
+			maze[i]=0;
+		}else{
+			maze[i]=1;
+		}
 	}	
 	
 }
