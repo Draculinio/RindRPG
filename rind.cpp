@@ -16,8 +16,10 @@ int main(){
 	int steps=0;
 	int points=20;
 	int gamePoints=0;
+	string name;
 	presentacion();
-	Character character("Draculinio",10,5,5);
+	cout<<"Enter your name, adventurer: ";
+	getline(cin,name);
 	cout<<"You have 20 points to distribute in Strength, Defense and Magical Power\n";
 	do{
 		cout<<"Give points to Strength ("<<points<<" left): ";
@@ -32,10 +34,12 @@ int main(){
 	points = points -defense;
 	magic = points;
 	points = 0;
+	Character character(name,strength,defense,magic);
 	cout<<magic<<" points assigned to magic."<<endl;
 	hp = 4*strength + 3*defense + 2*magic;
 	mana = 4*magic + 3*defense + 2*strength;
-	cout<<"NAME: Draculinio // STR: "<<strength<<"// DEF: "<<defense<<" // MGK: "<<magic<<" // HP: "<<hp<<" // MANA: "<<mana<<endl;
+	cout<<"NAME: Draculinio // STR: "<<character.getStrength()<<"// DEF: "<<character.getDefense()<<
+	" // MGK: "<<character.getMagic()<<" // HP: "<<character.getHp()<<" // MANA: "<<character.getMana()<<endl;
 	do{
 		cout<<"POINTS: "<<gamePoints<<endl;
 		cout<<"PosX: "<<posx<<" PosY: "<<posy<<endl;
@@ -66,8 +70,7 @@ int main(){
 				cout<<"Tirando un D6: "<<dice<<endl;
 				break;
 			case 0:
-				cout<<"Saliendo del sistema..."<<endl;
-				cout<<"Gracias por jugar Rindelia"<<endl;
+				cout<<"Thank you for playing Rindelia"<<endl;
 				break;
 			default:
 				cout<<"Orden no incorporada"<<endl;

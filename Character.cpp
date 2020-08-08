@@ -3,15 +3,10 @@
 #include<assert.h>
 #include "Character.h"
 
-Character::Character(const char *n,int str,int def,int mag){
-	/*if(strlen(n)<=20){
-		strcpy(name,n);
-	}else{
-		strncpy(name,n,20);
-	}*/
-	name = new char[ strlen(n) +1];
-	assert(name != 0); //asserts memory assigned
-	strcpy(name,n);
+using std::string;
+
+Character::Character(string n,int str,int def,int mag){
+	name=n;
 	strength=10;
 	defense=5;
 	magic=5;
@@ -48,7 +43,7 @@ void Character::setMagic(int mgk){
 
 int Character::getMagic(){ return magic; }
 
-char *Character::getName(){ return name; }
+string Character::getName(){ return name; }
 
 int Character::getHp(){ return hp; }
 

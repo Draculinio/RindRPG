@@ -3,14 +3,14 @@
 
 class Character{
 	public:
-		Character(const char *, int, int, int);
+		Character(std::string, int, int, int);
 		void setStrength(int);
 		int getStrength();
 		void setDefense(int);
 		int getDefense();
 		void setMagic(int);
 		int getMagic();
-		char *getName();
+		std::string getName();
 		int getHp();
 		int getMana();
 		void addExperience(unsigned int);
@@ -20,7 +20,7 @@ class Character{
 		void addMoney(int);
 		int getMoney();
 	private:
-		char *name;
+		std::string name;
 		int strength;
 		int defense;
 		int magic;
