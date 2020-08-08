@@ -4,12 +4,12 @@
 class Maze{
 	public:
 		Maze();
-		char *getMaze();
+		int *getMaze();
 		void setMaze(); //This should be private?
 		void setMazeLevel(int);
 		int getMazeLevel();
 	private:
-		char maze[50][50];
+		int maze[2500];
 		int level; //How strong is the maze
 };
 
