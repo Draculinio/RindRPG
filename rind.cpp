@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include "Character.h"
 
 using namespace std;
 
@@ -7,15 +8,16 @@ void presentacion();
 int giveOrder();
 int throwDice(int);
 int main(){
-	int points=20;
 	int strength,defense,magic,hp,mana;
 	int posx=0;
 	int posy=0;
 	int order;
 	int dice;
 	int steps=0;
-	int points=0;
+	int points=20;
+	int gamePoints=0;
 	presentacion();
+	Character character;
 	cout<<"You have 20 points to distribute in Strength, Defense and Magical Power\n";
 	do{
 		cout<<"Give points to Strength ("<<points<<" left): ";
@@ -35,7 +37,7 @@ int main(){
 	mana = 4*magic + 3*defense + 2*strength;
 	cout<<"NAME: Draculinio // STR: "<<strength<<"// DEF: "<<defense<<" // MGK: "<<magic<<" // HP: "<<hp<<" // MANA: "<<mana<<endl;
 	do{
-		cout<<"POINTS: "<<points<<endl;
+		cout<<"POINTS: "<<gamePoints<<endl;
 		cout<<"PosX: "<<posx<<" PosY: "<<posy<<endl;
 		order = giveOrder();
 		switch(order){
@@ -71,7 +73,7 @@ int main(){
 				cout<<"Orden no incorporada"<<endl;
 		}
 	if(steps==100){
-		points++;
+		gamePoints++;
 		steps=0;
 	}
 	}while(order!=0);
