@@ -17,7 +17,7 @@ int main(){
 	int points=20;
 	int gamePoints=0;
 	presentacion();
-	Character character;
+	Character character("Draculinio",10,5,5);
 	cout<<"You have 20 points to distribute in Strength, Defense and Magical Power\n";
 	do{
 		cout<<"Give points to Strength ("<<points<<" left): ";

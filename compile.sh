@@ -1,3 +1,3 @@
 #!/bin/sh
 
-g++ rind.cpp -o rind
+g++ rind.cpp  Character.cpp -o rind
